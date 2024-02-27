@@ -32,3 +32,7 @@ annayuna.PrintInfo();
 
 var rashmi = new CSStudent("Rashmi Mahato", 2, "rashmi@gmail.com", "Hospital Management System");
 rashmi.PrintInfo();
+
+
+LINQLearner l = new();
+l.Learn();

@@ -41,11 +41,9 @@ class Student
     // Auto implemented property
     public string Email { get; set; }
 
-    public void PrintInfo()
+    public string PrintInfo()
     {
-        Console.WriteLine($"Student Name: {Name}");
-        Console.WriteLine($"Student Roll Number: {rollNumber}");
-        Console.WriteLine($"Student Dob: {Dob}");
-        Console.WriteLine($"Student Email: {Email}");
+        var studentInfo = $"Student Name: {Name}, Roll Number: {rollNumber}, Dob: {Dob}, Email: {Email}";
+        return studentInfo;
     }
 }
