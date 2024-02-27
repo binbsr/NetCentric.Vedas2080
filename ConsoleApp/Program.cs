@@ -1,6 +1,6 @@
 ﻿using System;
 
-Console.WriteLine(378);
+//Console.WriteLine(378);
 
 DataTypes types = new();
 types.LearnTypes();
@@ -31,8 +31,8 @@ deepak.PrintInfo();
 annayuna.PrintInfo();
 
 var rashmi = new CSStudent("Rashmi Mahato", 2, "rashmi@gmail.com", "Hospital Management System");
-rashmi.PrintInfo();
+Console.WriteLine(rashmi.PrintInfo());
 
 
-LINQLearner l = new();
-l.Learn();
+// LINQLearner l = new();
+// l.Learn();

@@ -41,7 +41,7 @@ class Student
     // Auto implemented property
     public string Email { get; set; }
 
-    public string PrintInfo()
+    public virtual string PrintInfo()
     {
         var studentInfo = $"Student Name: {Name}, Roll Number: {rollNumber}, Dob: {Dob}, Email: {Email}";
         return studentInfo;
