@@ -22,7 +22,7 @@
     ```
 1. Save all your code snapshots in corresponding assignment folders. 
 
-# Assignement 1
+# Assignement 1 (Starter)
 
 1. Create a new console application named **Greeter** under **Assignment 1** folder.
 1. Modify **Program.cs** to define a variable **fullName** and assign some name.
@@ -45,7 +45,7 @@ Hello, BISHNU RAWAL Ji!
 Your DOB: Sunday, 12 December 2010
 Age as of now: 13 Years 2 Months 1 Week 1 Day
 ```
-# Assignment 2
+# Assignment 2 (OOP Concepts)
 
 Think of a real world scenario where you can design classe(s), interface(s) and members as shown in following class diagram:
 
