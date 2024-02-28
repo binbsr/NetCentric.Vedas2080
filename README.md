@@ -1,6 +1,18 @@
 # Please Note! these assignments are part of your final lab assessment report.
-Manually create folders for each assignment under your repo root folder. 
-1. Folder structure would be (Referring my repo, you use yours):
+1. Lab report document layout:
+    1. Assignment N (Related Area)
+        ```
+        Assignment Description
+        ```
+    1. Implementation
+        ```
+        Relevant Code Sections Only
+        ```
+    1. Output Snapshots
+        ```
+        Attach snapshots taken during code execution
+        ```
+1. Manually create folders for each assignment under your repo root folder. Folder structure would be (Referring my repo, you use yours):
     ```
     > NetCentric.Vedas2080
         > ConsoleApp
