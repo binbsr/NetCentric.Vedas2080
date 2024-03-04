@@ -26,15 +26,19 @@ siddhartha.Email = "Siddhartha.Raut@gmail.com";
 var deepak = new Student("Deepak Chaudhary", 12, "abc@abc.com", DateTime.Now);
 var annayuna = new Student("", 10, "annayuna@abc.com");
 
-siddhartha.PrintInfo();
-deepak.PrintInfo();
-annayuna.PrintInfo();
+// siddhartha.PrintInfo();
+// deepak.PrintInfo();
+// annayuna.PrintInfo();
 
-var rashmi = new CSStudent("Rashmi Mahato", 2, "rashmi@gmail.com", "Hospital Management System");
-Console.WriteLine(rashmi.PrintInfo());
+// var rashmi = new CSStudent("Rashmi Mahato", 2, "rashmi@gmail.com", "Hospital Management System");
+// Console.WriteLine(rashmi.PrintInfo());
 
 // LINQLearner l = new();
 // l.Learn();
 
-FDHandling fD = new();
-fD.ReadFile();
+// FDHandling fD = new();
+// fD.ReadFile();
+
+ParallelLearner pl = new();
+pl.Learn();
+
