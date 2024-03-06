@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Student Information</title>
+        <link href="Student.css" rel="stylesheet" />
+        <link href="bootstrap.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h1>Student Data</h1>
+        <h4>Sambit Aryal</h4>
+        <ol class="abc">
+            <li>Age: 23 Years</li>
+            <li>Program: BScIT VI</li>
+            <li>College: Vedas</li>
+            <li>Location: Lalitpur</li>
+        </ol>
+
+        <h4>Bishnu Aryal</h4>
+        <ol class="abc">
+            <li>Age: 23 Years</li>
+            <li>Program: BScIT VI</li>
+            <li>College: Vedas</li>
+            <li>Location: Lalitpur</li>
+        </ol>
+
+        <h4>Bishnu Aryal</h4>
+        <ol class="abc2" id="bishnu">
+            <li>Age: 23 Years</li>
+            <li>Program: BScIT VI</li>
+            <li>College: Vedas</li>
+            <li>Location: Lalitpur</li>
+        </ol>
+        <button class="btn btn-success" onclick="IncreaseFont()">Increase Font Size</button>
+
+        <input type="text"  class="form-control"/>
+        <button class="btn btn-success" onclick="showAlert()">Save</button>
+        <hr />
+
+        <script>
+            function showAlert()
+            {
+                alert("Data saved susscessfully!");                
+            }
+
+            function IncreaseFont()
+            {
+                let ol = document.getElementById('bishnu');
+                let oldFontSize = ol.style.fontStyle;
+                //var oldFontSizeNum = oldFontSize.substring(0, oldFontSize.indexOf('p'));
+                console.log(oldFontSize);
+            }
+        </script>
+    </body>
+</html>
