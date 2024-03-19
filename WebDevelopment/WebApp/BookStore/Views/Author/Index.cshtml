@@ -1,6 +1,5 @@
-@using BookStore.Data.Models
 @model List<Author>
-<h2>All Authors</h2>
+<a href="/author/add" class="btn btn-success">Add Author</a>
 <table class="table">
   <thead>
     <tr>
@@ -21,7 +20,7 @@
       <td>@author.Address</td>
       <td>@author.Gender</td>
       <td>@author.Email</td>
-      <td>@author.Dob</td>
+      <td>@author.Dob.ToLongDateString()</td>
     </tr>
   }    
   </tbody>
