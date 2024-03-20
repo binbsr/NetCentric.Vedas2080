@@ -25,4 +25,38 @@ public class AuthorController: Controller
 
         return RedirectToAction("Index");
     }
+
+    public IActionResult Edit(int id)
+    {
+        BookStoreDb db = new BookStoreDb();
+        var author = db.Authors.Find(id);
+        return View(author);
+    }
+
+    [HttpPost]
+    public IActionResult Edit(Author author)
+    {
+        BookStoreDb db = new BookStoreDb();
+        db.Authors.Update(author);
+        db.SaveChanges();
+
+        return RedirectToAction("Index");
+    }
+
+    public IActionResult Delete(int id)
+    {
+        BookStoreDb db = new BookStoreDb();
+        var author = db.Authors.Find(id);
+        return View(author);
+    }
+
+    [HttpPost]
+    public IActionResult Delete(Author author)
+    {
+        BookStoreDb db = new BookStoreDb();
+        db.Authors.Remove(author);
+        db.SaveChanges();
+
+        return RedirectToAction("Index");
+    }
 }

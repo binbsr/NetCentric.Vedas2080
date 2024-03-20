@@ -1,21 +1,22 @@
 @model Author
 
-<h2 class="text-center">New Author Registration</h2>
-<form action="/author/add" method="post">
+<h2 class="text-center">Update Author</h2>
+<form action="/author/edit" method="post">
+  <input type="hidden" asp-for="Id" />
   <div class="mb-3">
-    <label class="form-label">Name</label>
+    <label asp-for="Name" class="form-label"></label>
     <input asp-for="Name" type="text" class="form-control">
   </div>
   <div class="mb-3">
-    <label class="form-label">Address</label>
+    <label asp-for="Address" class="form-label"></label>
     <input asp-for="Address" type="text" class="form-control">
   </div>
   <div class="mb-3">
-    <label class="form-label">Email</label>
+    <label asp-for="Email" class="form-label"></label>
     <input asp-for="Email" type="email" class="form-control">
   </div>
   <div class="mb-3">
-    <label class="form-label">Gender</label>
+    <label asp-for="Gender" class="form-label"></label>
     <select class="form-select" asp-for="Gender">
       <option value="0" selected>Select Gender</option>
       @foreach(var g in Enum.GetValues<Gender>())
@@ -25,9 +26,9 @@
     </select>
   </div>
   <div class="mb-3">
-    <label class="form-label">DOB</label>
+    <label asp-for="Dob" class="form-label"></label>
     <input asp-for="Dob" type="date" class="form-control">
   </div>
-
+  
   <button type="submit" class="btn btn-primary">Save Author</button>
 </form>

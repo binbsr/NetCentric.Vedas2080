@@ -9,6 +9,7 @@
       <th scope="col">Gender</th>
       <th scope="col">Email</th>
       <th scope="col">Date of Birth</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -21,6 +22,10 @@
       <td>@author.Gender</td>
       <td>@author.Email</td>
       <td>@author.Dob.ToLongDateString()</td>
+      <td>
+        <a href="/author/edit/@author.Id"><i class="bi bi-pen-fill text-warning" title="Edit"></i></a>
+        <a href="/author/delete/@author.Id"><i class="bi bi-trash3-fill text-danger" title="Delete"></i></a>
+      </td>
     </tr>
   }    
   </tbody>
