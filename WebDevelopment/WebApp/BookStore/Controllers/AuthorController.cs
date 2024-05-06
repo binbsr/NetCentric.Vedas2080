@@ -1,12 +1,13 @@
 using BookStore.Data.Models;
 using Microsoft.AspNetCore.Mvc;
-public class AuthorController: Controller
+public class AuthorController : Controller
 {
     public IActionResult Index()
     {
         BookStoreDb db = new BookStoreDb();
         List<Author> authors = db.Authors.ToList();
 
+        //Reading Cookie
         if (Request.Cookies["username"] != null)
         {
             // Get the value of the cookie
@@ -14,6 +15,10 @@ public class AuthorController: Controller
             ViewBag.Username = username;
         }
 
+        string address = !string.IsNullOrEmpty(Request.Query["address"]) ? Request.Query["address"] : "Planet Earth";
+        ViewBag.Address = address;
+
+        //deleting cookie
         Response.Cookies.Delete("username");
         return View(authors);
     }
@@ -34,6 +39,7 @@ public class AuthorController: Controller
         return RedirectToAction("Index");
     }
 
+    //QueryString
     public IActionResult Edit(int id)
     {
         BookStoreDb db = new BookStoreDb();

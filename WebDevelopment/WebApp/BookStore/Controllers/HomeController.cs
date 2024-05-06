@@ -16,6 +16,7 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        //setting cookie
         Response.Cookies.Append("username", "Jack Sparrow");
         return View();
     }
