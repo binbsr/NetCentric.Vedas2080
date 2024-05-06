@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using BookStore.Models;
+using System.Web;
 
 namespace BookStore.Controllers;
 
@@ -15,6 +16,7 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        Response.Cookies.Append("username", "Jack Sparrow");
         return View();
     }
 

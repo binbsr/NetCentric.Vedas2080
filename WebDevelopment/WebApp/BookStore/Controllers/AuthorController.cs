@@ -7,6 +7,14 @@ public class AuthorController: Controller
         BookStoreDb db = new BookStoreDb();
         List<Author> authors = db.Authors.ToList();
 
+        if (Request.Cookies["username"] != null)
+        {
+            // Get the value of the cookie
+            string username = Request.Cookies["username"];
+            ViewBag.Username = username;
+        }
+
+        Response.Cookies.Delete("username");
         return View(authors);
     }
 
