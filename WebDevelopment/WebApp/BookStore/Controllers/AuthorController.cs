@@ -19,13 +19,15 @@ public class AuthorController : Controller
         ViewBag.Address = address;
 
         //deleting cookie
-        Response.Cookies.Delete("username");
+        //Response.Cookies.Delete("username");
         return View(authors);
     }
 
     // [HttpGet] - default
     public IActionResult Add()
     {
+        string username = HttpContext.Session.GetString("Username");
+        ViewBag.Username = username;
         return View();
     }
 
@@ -42,6 +44,9 @@ public class AuthorController : Controller
     //QueryString
     public IActionResult Edit(int id)
     {
+        string username = HttpContext.Session.GetString("Username");
+        ViewBag.Username = username;
+
         BookStoreDb db = new BookStoreDb();
         var author = db.Authors.Find(id);
         return View(author);
