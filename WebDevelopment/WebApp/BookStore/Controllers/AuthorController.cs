@@ -31,6 +31,12 @@ public class AuthorController : Controller
         return View();
     }
 
+    [HttpGet]
+    public IActionResult AddJs()
+    {
+        return View();
+    }
+
     [HttpPost]
     public IActionResult Add(Author author)
     {
