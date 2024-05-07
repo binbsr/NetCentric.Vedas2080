@@ -1,36 +1,40 @@
 @model List<Author>
+@{
+    ViewData["Title"] = "Authors";
+}
 
-<h1>Welcome, @ViewBag.Username!</h1>
-<h2>Address @ViewBag.Address!</h2>
+<h1>
+    Welcome, @ViewBag.Username!</}h1>
+    <h2>Address @ViewBag.Address!</h2>
 
-<a href="/author/add" class="btn btn-success">Add Author</a>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Name</th>
-      <th scope="col">Address</th>
-      <th scope="col">Gender</th>
-      <th scope="col">Email</th>
-      <th scope="col">Date of Birth</th>
-      <th scope="col"></th>
-    </tr>
-  </thead>
-  <tbody>
-  @foreach(var author in Model)
-  {
-    <tr>
-      <th scope="row">@author.Id</th>
-      <td>@author.Name</td>
-      <td>@author.Address</td>
-      <td>@author.Gender</td>
-      <td>@author.Email</td>
-      <td>@author.Dob.ToLongDateString()</td>
-      <td>
-        <a href="/author/edit/@author.Id"><i class="bi bi-pen-fill text-warning" title="Edit"></i></a>
-        <a href="/author/delete/@author.Id"><i class="bi bi-trash3-fill text-danger" title="Delete"></i></a>
-      </td>
-    </tr>
-  }    
-  </tbody>
-</table>
+    <a href="/author/add" class="btn btn-success">Add Author</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Address</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Email</th>
+                <th scope="col">Date of Birth</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var author in Model)
+            {
+                <tr>
+                    <th scope="row">@author.Id</th>
+                    <td>@author.Name</td>
+                    <td>@author.Address</td>
+                    <td>@author.Gender</td>
+                    <td>@author.Email</td>
+                    <td>@author.Dob.ToLongDateString()</td>
+                    <td>
+                        <a href="/author/edit/@author.Id"><i class="bi bi-pen-fill text-warning" title="Edit"></i></a>
+                        <a href="/author/delete/@author.Id"><i class="bi bi-trash3-fill text-danger" title="Delete"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>

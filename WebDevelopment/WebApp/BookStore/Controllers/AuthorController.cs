@@ -19,7 +19,7 @@ public class AuthorController : Controller
         ViewBag.Address = address;
 
         //deleting cookie
-        //Response.Cookies.Delete("username");
+        Response.Cookies.Delete("username");
         return View(authors);
     }
 
