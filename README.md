@@ -78,3 +78,45 @@ Now your tasks:
         4. List top 3 south asian countries with lowest inflation rate for year 2020
 
 > Note: Take snapshots as needed for your attempt progress (Code + Output).
+
+# Assignment 3 (ASP .NET Core MVC)
+# Student Management System
+
+## Task 1: Setting Up the Project
+
+    1. Create a new ASP.NET Core MVC project.
+    2. Install necessary NuGet packages for SQLite (Microsoft.EntityFrameworkCore.Sqlite) and API calls (System.Net.Http.Json).
+    3. Set up SQLite database context for student management.
+
+## Task 2: Create Models
+
+    1. Create a Student model with properties like Id, Name, Email, and Age.
+    2. Add data annotations for field validations (e.g., Required, EmailAddress, Range).
+
+## Task 3: Create Views
+
+    1. Create views for listing all students, creating a new student, editing a student, and deleting a student.
+    2. Implement form validation on the views using Razor syntax and client-side validation.
+
+## Task 4: Implement CRUD Operations
+
+    1. Create: Add a new student to the database.
+    2. Read: Retrieve a list of all students and display them on the index page.
+    3. Update: Edit existing student details.
+    4. Delete: Remove a student from the database.
+
+## Task 5: API Integration
+
+    1. Create a separate controller for API calls to fetch student data.
+    2. Implement API endpoints for CRUD operations to interact with student data using HTTP methods (GET, POST, PUT, DELETE).
+
+## Task 6: Testing
+
+    1. Test the application by adding, editing, and deleting student records from the views.
+
+## Task 7: Authentication and Authorization
+
+    1. Implement authentication and authorization mechanisms to control access to the student management system.
+
+> Note: Take snapshots as needed for your attempt progress (Code + Output).
+
