@@ -79,7 +79,7 @@ function isValidEmail(email) {
 
 
 //AJAX
-$('#authorForm11').click(function () {
+$('#authorForm').submit(function () {
     // Get form data
     var formData = {
         Name: $('#name').val(),

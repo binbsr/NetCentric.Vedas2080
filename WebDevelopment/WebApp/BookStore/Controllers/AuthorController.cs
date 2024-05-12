@@ -2,7 +2,7 @@ using BookStore.Data.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-[Authorize]
+
 public class AuthorController : Controller
 {
     private readonly BookStoreDb _context;
@@ -11,6 +11,7 @@ public class AuthorController : Controller
         _context = context;
     }
 
+    [Authorize]
     public IActionResult Index()
     { 
         List<Author> authors = _context.Authors.ToList();
@@ -32,6 +33,7 @@ public class AuthorController : Controller
     }
 
     // [HttpGet] - default
+    [Authorize]
     public IActionResult Add()
     {
         string username = HttpContext.Session.GetString("Username");
@@ -55,6 +57,7 @@ public class AuthorController : Controller
     }
 
     //QueryString
+    [Authorize]
     public IActionResult Edit(int id)
     {
         string username = HttpContext.Session.GetString("Username");
@@ -65,6 +68,7 @@ public class AuthorController : Controller
     }
 
     [HttpPost]
+    [Authorize]
     public IActionResult Edit(Author author)
     {
         _context.Authors.Update(author);
@@ -73,6 +77,7 @@ public class AuthorController : Controller
         return RedirectToAction("Index");
     }
 
+    [Authorize]
     public IActionResult Delete(int id)
     {
         var author = _context.Authors.Find(id);
@@ -80,6 +85,7 @@ public class AuthorController : Controller
     }
 
     [HttpPost]
+    [Authorize]
     public IActionResult Delete(Author author)
     {
         _context.Authors.Remove(author);
