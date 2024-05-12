@@ -6,7 +6,6 @@ using Microsoft.Extensions.Caching.Memory;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
 using BookStore.Data.Models;
-using NuGet.Protocol;
 
 namespace BookStore.Controllers;
 
@@ -78,6 +77,13 @@ public class HomeController : Controller
 
     public IActionResult Users()
     {
-        return Ok(_context.Users.ToList().ToJson());
+        return Ok(_context.Users.ToList());
+    }
+
+    public IActionResult XXS()
+    {
+        UserInputViewModel userInput = new();
+        userInput.Input = "<script>alert('XSS Attack!')</script>";
+        return View(userInput);
     }
 }

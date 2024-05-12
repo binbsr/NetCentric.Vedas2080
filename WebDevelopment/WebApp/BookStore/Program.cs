@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+builder.Services.AddAntiforgery();
 builder.Services.AddSession();
 builder.Services.AddDbContext<BookStoreDb>(options =>
        options.UseSqlite("Data Source=BookStore.db"));

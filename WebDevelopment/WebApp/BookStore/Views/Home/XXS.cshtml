@@ -1,0 +1,11 @@
+﻿@using System.Web
+@model UserInputViewModel
+
+<h1>XSS Vulnerable Page</h1>
+<h3>Welcome,@Html.Raw(Model.Input) </h3>
+
+<h1>XSS Resolved Page @Model.Input </h1>
+<h3>Welcome, @Html.Raw(HttpUtility.HtmlEncode(Model.Input))</h3>
+
+
+

