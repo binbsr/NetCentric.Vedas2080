@@ -3,25 +3,32 @@ using Microsoft.AspNetCore.Mvc;
 using BookStore.Models;
 using System.Web;
 using Microsoft.Extensions.Caching.Memory;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
+using BookStore.Data.Models;
+using NuGet.Protocol;
 
 namespace BookStore.Controllers;
 
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private readonly BookStoreDb _context;
+    private string username;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger, BookStoreDb context)
     {
+        _context = context;
         _logger = logger;
     }
 
     public IActionResult Index()
     {
         //setting cookie
-        string username = "Jack Sparrow";
-        
+        username = User.Identity.Name ?? "User";
+
         Response.Cookies.Append("username", username);
-        HttpContext.Session.SetString("Username", "Jack Sparrow");
+        HttpContext.Session.SetString("Username", username);
 
         ViewBag.Username = Request.Cookies["username"];
 
@@ -67,5 +74,10 @@ public class HomeController : Controller
     public IActionResult Error()
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+    }
+
+    public IActionResult Users()
+    {
+        return Ok(_context.Users.ToList().ToJson());
     }
 }

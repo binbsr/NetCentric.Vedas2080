@@ -1,11 +1,23 @@
-using Microsoft.Extensions.Caching.Memory;
-using System.Web;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+
 builder.Services.AddSession();
+builder.Services.AddDbContext<BookStoreDb>(options =>
+       options.UseSqlite("Data Source=BookStore.db"));
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<BookStoreDb>();
+
+builder.Services.AddAuthentication();
+
+builder.Services.AddAuthorization();
+builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
@@ -24,10 +36,13 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
+app.MapRazorPages();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
 
 app.Run();

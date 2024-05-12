@@ -1,11 +1,19 @@
 using BookStore.Data.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+
+[Authorize]
 public class AuthorController : Controller
 {
-    public IActionResult Index()
+    private readonly BookStoreDb _context;
+    public AuthorController(BookStoreDb context)
     {
-        BookStoreDb db = new BookStoreDb();
-        List<Author> authors = db.Authors.ToList();
+        _context = context;
+    }
+
+    public IActionResult Index()
+    { 
+        List<Author> authors = _context.Authors.ToList();
 
         //Reading Cookie
         if (Request.Cookies["username"] != null)
@@ -40,9 +48,8 @@ public class AuthorController : Controller
     [HttpPost]
     public IActionResult Add(Author author)
     {
-        BookStoreDb db = new BookStoreDb();
-        db.Authors.Add(author);
-        db.SaveChanges();
+        _context.Authors.Add(author);
+        _context.SaveChanges();
 
         return RedirectToAction("Index");
     }
@@ -53,34 +60,30 @@ public class AuthorController : Controller
         string username = HttpContext.Session.GetString("Username");
         ViewBag.Username = username;
 
-        BookStoreDb db = new BookStoreDb();
-        var author = db.Authors.Find(id);
+        var author = _context.Authors.Find(id);
         return View(author);
     }
 
     [HttpPost]
     public IActionResult Edit(Author author)
     {
-        BookStoreDb db = new BookStoreDb();
-        db.Authors.Update(author);
-        db.SaveChanges();
+        _context.Authors.Update(author);
+        _context.SaveChanges();
 
         return RedirectToAction("Index");
     }
 
     public IActionResult Delete(int id)
     {
-        BookStoreDb db = new BookStoreDb();
-        var author = db.Authors.Find(id);
+        var author = _context.Authors.Find(id);
         return View(author);
     }
 
     [HttpPost]
     public IActionResult Delete(Author author)
     {
-        BookStoreDb db = new BookStoreDb();
-        db.Authors.Remove(author);
-        db.SaveChanges();
+        _context.Authors.Remove(author);
+        _context.SaveChanges();
 
         return RedirectToAction("Index");
     }
